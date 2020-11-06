@@ -5,9 +5,10 @@ const db = require("../models");
 router.get("/api/workouts", (req, res) => {
     //console.log(db)
     db.Workout.find({})
-        .sort({ date: 0 })
+        //.sort({ date: 0 })
         .then(dbWorkout => {
             res.json(dbWorkout);
+
         })
         .catch(err => {
             res.json(err);
@@ -15,6 +16,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.post("/api/workouts", (req, res) => {
+    //db.Workout.create({$push: {day: new Date(new Date().setDate(new Date().getDate()))}})
     db.Workout.create({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -25,9 +27,10 @@ router.post("/api/workouts", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-    console.log("got here 7")
-    console.log("req.body ", { exercises: req.body })
-    db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { day: new Date(new Date().setDate(new Date().getDate())), exercises: req.body } })
+    //console.log("got here 7")
+    //console.log("id ", {exercises: req.body})
+    //db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {day: new Date(new Date().setDate(new Date().getDate())), exercises: req.body}} )
+    db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
 
         .then(dbWorkout => {
             res.json(dbWorkout);
