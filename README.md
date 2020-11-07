@@ -1,16 +1,8 @@
 # Workout-Tracker
 
+[Heroku App](https://nameless-dusk-72885.herokuapp.com/)
+
 ![fitness tracker image](./public/assets/FitnessTracker.jpg)
-
-## Description:
-
-Helps you keep track of your daily workouts by allowing you to enter multiple exercises for a given workout. The exercises can be either resistance or cardio. Based off what you choose there is different required inputs that will be tracked. A summary of the last workout is displayed after entering data and upon launching the app.
-
-![excercise image](./public/assets/exercise.jpg)
-
-There is also a useful stats summary dashboard that lets you visualize your workouts over time. It does this by showing you graphs, and various charts.
-
-![stats image](./public/assets/stats.jpg)
 
 ## Table of Contents
 
@@ -20,6 +12,16 @@ There is also a useful stats summary dashboard that lets you visualize your work
 - [Test](#test)
 - [Technologies](#technologies)
 - [Questions](#questions)
+
+## Description:
+
+This app helps you keep track of your daily workouts by allowing you to enter multiple exercises for a given workout. The exercises can be either resistance or cardio. Based off what you choose there is different required inputs that will be tracked. A summary of the last workout is displayed after entering data and upon launching the app.
+
+![excercise image](./public/assets/exercise.jpg)
+
+There is also a useful stats summary dashboard that lets you visualize your workouts over time. It does this by showing you graphs, and various charts.
+
+![stats image](./public/assets/stats.jpg)
 
 ## License:
 
