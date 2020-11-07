@@ -8,11 +8,11 @@ async function initWorkout() {
 
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
+      // Moved totalDuration to the tallyExercises section
+      //totalDuration: lastWorkout.totalDuration,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };
-
     renderWorkoutSummary(workoutSummary);
   } else {
     renderNoWorkoutText()
@@ -28,6 +28,8 @@ function tallyExercises(exercises) {
     } else if (curr.type === "cardio") {
       acc.totalDistance = (acc.totalDistance || 0) + curr.distance;
     }
+    // tally duration for all excercises in the workout here
+    acc.totalDuration = (acc.totalDuration || 0) + curr.duration;
     return acc;
   }, {});
   return tallied;
