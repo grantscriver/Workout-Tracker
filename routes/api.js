@@ -1,11 +1,9 @@
 const router = require("express").Router();
 const db = require("../models");
 
-
+// Shows last workout in the fitness tracker
 router.get("/api/workouts", (req, res) => {
-    //console.log(db)
     db.Workout.find({})
-        //.sort({ date: 0 })
         .then(dbWorkout => {
             res.json(dbWorkout);
 
@@ -15,8 +13,8 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
+// Showing form for gathering exercise data and adds an empty record
 router.post("/api/workouts", (req, res) => {
-    //db.Workout.create({$push: {day: new Date(new Date().setDate(new Date().getDate()))}})
     db.Workout.create({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -26,10 +24,8 @@ router.post("/api/workouts", (req, res) => {
         });
 });
 
+// Fill the record with the data that was entered
 router.put("/api/workouts/:id", (req, res) => {
-    //console.log("got here 7")
-    //console.log("id ", {exercises: req.body})
-    //db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {day: new Date(new Date().setDate(new Date().getDate())), exercises: req.body}} )
     db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
 
         .then(dbWorkout => {
@@ -40,6 +36,7 @@ router.put("/api/workouts/:id", (req, res) => {
         });
 });
 
+// Displays dashboard graphs
 router.get("/api/workouts/range", (req, res) => {
     db.Workout.find({})
         .then(dbWorkout => {
