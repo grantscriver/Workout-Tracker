@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// Uses mongoose to connect to mongodb database
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
@@ -20,7 +21,7 @@ mongoose.connect(
     }
 );
 
-// routes
+// requiring correct routes for app functionality
 app.use(require("./routes/api.js"));
 app.use(require("./routes/html.js"));
 
